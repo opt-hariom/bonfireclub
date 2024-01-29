@@ -1,0 +1,62 @@
+<div class="page-width">
+  <div class="contact-wrapper">
+    <h2>{{ section.settings.title }}</h2>
+    <p>{{ section.settings.subtitle }}</p>
+    {%- form 'contact', id: 'contact_form', class: 'isolate' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="form-status form-status-list form__message" tabindex="-1" autofocus>
+          {% render 'icon-success' %}
+          {{ 'templates.contact.form.post_success' | t }}
+        </p>
+      {%- endif -%}
+    
+      <div class="email">
+        <input type="email" name="contact[email]" id="email" placeholder="Type in your email" required/>
+      </div>
+    
+      <div class="message">
+        <textarea name="contact[body]" id="message" placeholder="Tell us all about it" required></textarea>
+      </div>
+    
+      <div class="submit">
+        <input type="submit" value="Send"/>
+      </div>
+    {% endform %}
+  </div>
+</div>
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Custom Contact Form",
+    "class": "custom-form",
+    "settings": [
+      {
+         "type": "text",
+         "id": "title",
+         "label": "Title"
+      },
+      {
+         "type": "text",
+         "id": "subtitle",
+         "label": "Subtitle"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Contact Form",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

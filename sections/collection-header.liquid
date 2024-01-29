@@ -1,0 +1,62 @@
+<section class="collection-header">
+  <div class="page-width">
+    <div class="back-btn {% if section.settings.show_breadcrumb %} hide{% endif %}">
+      <a href="/collections/">← Collections</a>
+    </div>
+    <div class="header-outer">
+      <div class="header-content">
+        <h2>{{ section.settings.title }}</h2>
+        <p>{{ section.settings.para }}</p>
+      </div>
+      <div class="header-image">
+        <img src="{{ section.settings.img | img_url: "master" }}"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+{% schema %}
+  {
+    "name": "Collection Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumb",
+        "default": true,
+        "label": "Hide Breadcrumb"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "para",
+        "label": "Paragraph"
+      },
+      {
+        "type": "image_picker",
+        "id": "img",
+        "label": "Right Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Header",
+        "blocks": [
+          
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

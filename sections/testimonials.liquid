@@ -1,0 +1,83 @@
+<div class="testimonials">
+  <div class="page-width">
+    <div class="testimonials_content">
+      <div class="main_title">
+        <h2 class="title">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+      <div class="bottm_text">
+        <p>
+          {{ section.settings.para_text }}
+        </p>
+      </div>
+      <div class="testimonials_blocks">
+        <div class="content">
+          {% for block in section.blocks %}
+            {% case block.type %}
+             {% when 'boxes' %}
+               <div class="box">
+                  <div class="image">
+                    <img src="{{ block.settings.img | img_url: 'large'}}">
+                  </div>
+                  <!-- <div class="text">
+                    <h3>{{ block.settings.title }}</h3>
+                  </div> -->
+                </div>
+             {% endcase %}
+           {% endfor %}          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Home Testimonials",
+    "class": "testimonials-section",
+    "settings": [
+      {
+         "type": "text",
+         "id": "heading",
+         "label": "Main Heading"
+       },
+      {
+         "type": "text",
+         "id": "para_text",
+         "label": "Bottom Description"
+       }
+    ],
+    "blocks": [
+     {
+       "name": "Box Points",
+       "type": "boxes",
+       "settings": [
+           {
+              "type": "image_picker",
+              "id": "img",
+              "label": "Icon Image"
+            },
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Title"
+           }           
+       ]
+     }
+   ],
+    "presets": [
+      {
+        "name": "Home Testimonials",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

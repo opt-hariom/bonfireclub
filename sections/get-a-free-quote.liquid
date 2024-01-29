@@ -1,0 +1,50 @@
+<div class="get-free-quote-sec">
+  <div class="page-width">
+
+    <div class="free-quotes-heading">
+      <div class="heading-title">
+        <h2>Get a free quote</h2>
+        <p>Get your price within 24 hours. Worldwide
+          free shipping and 2 year garantee.</p>
+      </div>
+      <div class="image">
+        <img src="{{ section.settings.star_img }}" alt="image">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+      {
+         "type": "text",
+         "id": "heading",
+         "label": "Image Headings"
+       },
+      {
+         "type": "image_picker",
+         "id": "star_img",
+         "label": "First Image"
+       }
+    ],
+    "presets": [
+      {
+        "name": "Get Free Quote Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

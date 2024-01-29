@@ -1,0 +1,115 @@
+<div class="dyo_first_sec">
+  <div class="page-width">
+    <div class="dyo_first_sec_content">
+      <div class="left_box">
+        <div class="head_div">
+          <h2 class="title">
+            {{ section.settings.left_heading }}
+          </h2>
+        </div>
+        <div class="head_bottm">
+          <p class="para">
+            {{ section.settings.left_text }}
+          </p>
+          <div class="btnn">
+            <a href="{{ section.settings.left_l_btn_url }}" class="btn">
+              {{ section.settings.left_l_btn_text }}
+            </a>
+            <a href="{{ section.settings.left_r_btn_url_2 }}" class="btn btn-alternate">
+              {{ section.settings.left_r_btn_text }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="right_box">
+        <div class="head_div">
+          <h2 class="title">
+            {{ section.settings.right_heading }}
+          </h2>
+        </div>
+        <div class="head_bottm">
+          <p class="para">
+            {{ section.settings.right_text }}
+          </p>
+          <div class="btnn">
+            <a href="{{ section.settings.right_btn_url }}" class="btn">
+              {{ section.settings.right_btn_text }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "DYO First Section",
+    "class": "dyo_first_sec_main",
+    "settings": [
+      {
+         "type": "textarea",
+         "id": "left_heading",
+         "label": "Left Heading"
+       },
+      {
+         "type": "textarea",
+         "id": "left_text",
+         "label": "Left Paragraph"
+       },
+      {
+         "type": "text",
+         "id": "left_l_btn_text",
+         "label": "Left First Button label"
+       },
+      {
+           "type": "url",
+           "id": "left_l_btn_url",
+           "label": "Left First Button Link"
+       },
+      {
+         "type": "text",
+         "id": "left_r_btn_text",
+         "label": "Left Second Button label"
+       },
+      {
+           "type": "url",
+           "id": "left_r_btn_url_2",
+           "label": "Left Second Button Link"
+       },
+      {
+         "type": "textarea",
+         "id": "right_heading",
+         "label": "Right Heading"
+       },
+      {
+         "type": "textarea",
+         "id": "right_text",
+         "label": "Right Paragraph"
+       },
+      {
+         "type": "text",
+         "id": "right_btn_text",
+         "label": "Right Button label"
+       },
+      {
+         "type": "url",
+         "id": "right_btn_url",
+         "label": "Right Button Link"
+       }
+    ],
+    "presets": [
+      {
+        "name": "DYO First Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

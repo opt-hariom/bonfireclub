@@ -1,0 +1,111 @@
+<div class="upload-desgin-first-main">
+  <div class="page-width">
+    <div class="back-btn">
+      <a href="/products/design-your-own-product">← Go back</a>
+    </div>
+    <div class="inner-first">
+      <div class="images">
+        <div class="image-div">
+          <img src="{{ section.settings.image1 | img_url: 'large'}}">
+        </div>
+        <div class="image-div">
+          <img src="{{ section.settings.image2 | img_url: 'large'}}">
+        </div>
+      </div>
+      <div class="text">
+        {{ section.settings.main-title }} 
+      </div>
+      <div class="images">
+        <div class="image-div">
+          <img src="{{ section.settings.image3 | img_url: 'large'}}">
+        </div>
+        <div class="image-div">
+          <img src="{{ section.settings.image4 | img_url: 'large'}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="free-quote">
+  <div class="page-width">
+    <div class="main-heading">
+      <div class="title">
+        <h2>{{ section.settings.upload_title }}</h2>
+        <p>{{ section.settings.upload_subtitle }}</p>
+      </div>
+      <img src="{{ section.settings.upload_image | img_url: 'large'}}"/>
+    </div>
+    <div class="design-form">
+      <div style="margin:0 auto;" class="pxFormGenerator" id="{{ section.settings.hulk-id }}"></div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Upload first section",
+    "class": "upload-design-first-sec",
+    "settings": [
+      {
+         "type": "text",
+         "id": "hulk-id",
+         "label": "Enter the hulk id here" 
+      },
+      {
+         "type": "image_picker",
+         "id": "image1",
+         "label": "First Image"
+      },
+      {
+         "type": "image_picker",
+         "id": "image2",
+         "label": "Second Image"
+      },
+      {
+         "type": "richtext",
+         "id": "main-title",
+         "label": "Main Title"
+      },
+      {
+         "type": "image_picker",
+         "id": "image3",
+         "label": "Third Image"
+      },
+      {
+         "type": "image_picker",
+         "id": "image4",
+         "label": "Fourth Image"
+      },
+      {
+         "type": "text",
+         "id": "upload_title",
+         "label": "Upload Title"
+      },
+      {
+         "type": "text",
+         "id": "upload_subtitle",
+         "label": "Upload Paragraph"
+      },
+      {
+         "type": "image_picker",
+         "id": "upload_image",
+         "label": "Upload Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Upload Design First Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

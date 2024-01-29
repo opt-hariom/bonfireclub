@@ -1,0 +1,85 @@
+<div class="upload-desgin-first-main">
+  <div class="page-width">
+    <div class="back-btn">
+      <a href="/">← Go back</a>
+    </div>
+    <div class="inner-first">
+      <div class="images">
+        <div class="image-div">
+          <img src="{{ section.settings.image1 | img_url: 'large'}}">
+        </div>
+        <div class="image-div">
+          <img src="{{ section.settings.image2 | img_url: 'large'}}">
+        </div>
+      </div>
+      <div class="heading">
+        {%- if section.settings.title != blank -%}
+          <h1>{{ section.settings.title }}</h1>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          {{ section.settings.subtitle }}
+        {%- endif -%}
+      </div>
+      <div class="images">
+        <div class="image-div">
+          <img src="{{ section.settings.image3 | img_url: 'large'}}">
+        </div>
+        <div class="image-div">
+          <img src="{{ section.settings.image4 | img_url: 'large'}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Page Header",
+    "class": "page-header",
+    "settings": [
+      {
+         "type": "image_picker",
+         "id": "image1",
+         "label": "First Image"
+      },
+      {
+         "type": "image_picker",
+         "id": "image2",
+         "label": "Second Image"
+      },
+      {
+         "type": "text",
+         "id": "title",
+         "label": "Title"
+      },
+      {
+         "type": "richtext",
+         "id": "subtitle",
+         "label": "Subtitle"
+      },
+      {
+         "type": "image_picker",
+         "id": "image3",
+         "label": "Third Image"
+      },
+      {
+         "type": "image_picker",
+         "id": "image4",
+         "label": "Fourth Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Header",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

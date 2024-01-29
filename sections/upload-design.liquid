@@ -1,0 +1,61 @@
+<div class="upload-outer">
+  <div class="page-width">
+    <div class="upload-wrapper">
+      <div class="left-box content-box">
+        <img src="{{ section.settings.left_image | img_url: 'large'}}"/>
+      </div>
+      <div class="right-box content-box">
+        <h2>{{ section.settings.right_heading }}</h2>
+        <p>{{ section.settings.right_subheading }}</p>
+        <a class="upload" href="{{ section.settings.upload_btn_url }}">{{ section.settings.upload_btn_text }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Upload Section",
+    "class": "upload-sec",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "left_image",
+        "label": "Left Image"
+      },
+      {
+        "type": "textarea",
+        "id": "right_heading",
+        "label": "Right Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "right_subheading",
+        "label": "Right Subheading"
+      },
+      {
+        "type": "text",
+        "id": "upload_btn_text",
+        "label": "Upload Button label"
+      },
+      {
+        "type": "url",
+        "id": "upload_btn_url",
+        "label": "Upload Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Upload Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

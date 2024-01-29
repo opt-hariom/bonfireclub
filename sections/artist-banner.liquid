@@ -1,0 +1,37 @@
+<div class="artist-banner">
+  <div class="featured-img">
+    {% if collection.featured_image != blank %}
+      <img src="{{ collection.featured_image | img_url: 'master' }}" alt="" width="{{ collection.image.width }}" height="{{ collection.image.height }}" loading="lazy">
+    {% endif %}
+  </div>
+  <div class="page-width">
+    <div class="banner-content">
+      <h1>{{- collection.title | escape -}}</h1>
+      <p>{{ collection.description }}</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Artist Banner",
+    "settings": [
+      
+    ],
+    "presets": [
+      {
+        "name": "Artist Banner"
+      }
+    ]
+  }
+  {% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

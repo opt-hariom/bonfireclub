@@ -1,0 +1,105 @@
+<div class="get_started_sec">
+  <div class="page-width">
+    <div class="get_started_sec_content">
+      <div class="box left_box">
+        <img src="{{ section.settings.left_image | img_url: 'large'}}">
+      </div>
+      <div class="box right_box">
+        <div class="icon">
+          <img src="{{ section.settings.icon_image | img_url: 'large'}}">
+        </div>
+        <h2 class="title">
+          {{ section.settings.heading }}
+        </h2>
+        <div class="block_points">
+          {% for block in section.blocks %}
+            {% case block.type %}
+             {% when 'boxes' %}            
+             <div class="points">
+               <h2>{{ block.settings.points }}</h2> 
+             </div>
+             {% endcase %}
+           {% endfor %}
+        </div>
+        <div class="buttons">
+          <a href="{{ section.settings.design_btn_url }}" class="design">
+            {{ section.settings.design_btn_text }}
+          </a>
+          <a href="{{ section.settings.upload_btn_url }}" class="upload">
+            {{ section.settings.upload_btn_text }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Home Get Started Section",
+    "class": "left-image-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "left_image",
+        "label": "Left Image"
+      },
+      {
+         "type": "text",
+         "id": "heading",
+         "label": "Heading"
+       },
+      {
+        "type": "image_picker",
+        "id": "icon_image",
+        "label": "Icon Image"
+      },
+      {
+         "type": "text",
+         "id": "design_btn_text",
+         "label": "Design Button label"
+       },
+      {
+           "type": "url",
+           "id": "design_btn_url",
+           "label": "Design Button Link"
+       },
+      {
+         "type": "text",
+         "id": "upload_btn_text",
+         "label": "Upload Button label"
+       },
+      {
+         "type": "url",
+         "id": "upload_btn_url",
+         "label": "Upload Button Link"
+       }
+    ],
+    "blocks": [
+     {
+       "name": "Started Points",
+       "type": "boxes",
+       "settings": [
+          {
+           "type": "text",
+           "id": "points",
+           "label": "Points"
+         }
+       ]
+     }
+   ],
+    "presets": [
+      {
+        "name": "Home Get Started",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

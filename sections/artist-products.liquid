@@ -1,0 +1,98 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+<div class="artist-wrapper">
+  <div class="page-width">
+    <div class="product-wrapper">
+      <div class="heading">
+        <h2 class="title">
+          Bonfire <span>Club + {{- collection.title | escape -}}</span>
+        </h2>
+        <div class="swiper-icons">
+          <div class="swiper-prev-btn">
+            <img src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/Asset8.svg?v=1686581910"/>
+          </div>
+          <div class="swiper-next-btn">
+            <img src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/Asset8.svg?v=1686581910">
+          </div>
+        </div>
+      </div>
+      <div class="collection_slider_main">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            {%- for product in collection.products -%}
+              <div class="swiper-slide">                
+                <div class="product_slider">
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    show_quick_add: section.settings.enable_quick_add,
+                    section_id: section.id
+                  %}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  var swiper = new Swiper(".mySwiper", {
+    loop: false,
+    slidesPerView: 1,
+    freemode: true,
+    paginationClickable: true,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".swiper-next-btn",
+      prevEl: ".swiper-prev-btn",
+    },
+    breakpoints: {
+      499: {
+          slidesPerView: 1
+      },
+      768: {
+          slidesPerView: 2
+      },
+      991: {
+          slidesPerView: 3
+      },
+      1024: {
+          slidesPerView: 4
+      },
+      1300: {
+          slidesPerView: 5
+      }
+    },
+  });
+});
+</script>
+
+
+{% schema %}
+  {
+    "name": "Artist Collection",
+    "class": "artist-collection",
+    "settings": [
+      
+    ],
+    "presets": [
+      {
+        "name": "Artist Collection",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

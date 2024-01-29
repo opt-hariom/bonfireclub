@@ -1,0 +1,148 @@
+<div class="home_toykyo_sec">
+  <div class="toykyo_sec_content">
+    <div class="left_box" style="background-image:url({{section.settings.a_s_bg_img | img_url: "master" }})">
+      <h2 class="title">
+        {{ section.settings.a_s_heading }}
+      </h2>
+      <a href="{{ section.settings.a_s_btn_url }}" class="artist_series">
+        {{ section.settings.a_s_btn_text }}
+      </a>
+    </div>
+    <div class="right_box">
+      <div class="heading">
+        <h2 class="title">
+          {{ section.settings.b_t_heading }}
+        </h2>
+        <div class="swiper-icons">
+          <div class="swiper-prev-btn">
+            <img src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/Asset8.svg?v=1686581910"/>
+          </div>
+          <div class="swiper-next-btn">
+            <img src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/Asset8.svg?v=1686581910">
+          </div>
+        </div>
+      </div>
+      <p class="para">
+        {{ section.settings.b_t_text }}
+      </p>
+      <div class="collection_slider_main">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            {%- for product in section.settings.slider_collection.products -%}
+              <div class="swiper-slide mobile-width">                
+                <div class="product_slider">
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    show_quick_add: section.settings.enable_quick_add,
+                    section_id: section.id
+                  %}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+      <a href="{{ section.settings.b_t_btn_url }}" class="tokyo_collec">
+        {{ section.settings.b_t_btn_text }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  var swiper = new Swiper(".mySwiper", {
+    loop: false,
+    slidesPerView: 1.35,
+    freemode: true,
+    paginationClickable: true,
+    spaceBetween: 16,
+    navigation: {
+      nextEl: ".swiper-next-btn",
+      prevEl: ".swiper-prev-btn",
+    },
+    breakpoints: {
+        0: {
+          slidesPerView: 'auto',
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2.5,
+          spaceBetween: 20,
+        }
+      },
+  });
+});
+</script>
+
+
+{% schema %}
+  {
+    "name": "Home Toykyo Collection",
+    "class": "toykyo-collection",
+    "settings": [
+      {
+         "type": "textarea",
+         "id": "a_s_heading",
+         "label": "Artist Series Heading"
+       },
+      {
+         "type": "image_picker",
+         "id": "a_s_bg_img",
+         "label": "Artist Series Background Image"
+       },
+      {
+         "type": "text",
+         "id": "a_s_btn_text",
+         "label": "Artist Series Button label"
+       },
+      {
+           "type": "url",
+           "id": "a_s_btn_url",
+           "label": "Artist Series Button Link"
+       },
+      {
+         "type": "textarea",
+         "id": "b_t_heading",
+         "label": "Bonfire Toykyo Heading"
+       },
+      {
+         "type": "text",
+         "id": "b_t_text",
+         "label": "Bonfire Toykyo Paragraph"
+       },
+      {
+         "type": "text",
+         "id": "b_t_btn_text",
+         "label": "Bonfire Toykyo Button label"
+       },
+      {
+         "type": "url",
+         "id": "b_t_btn_url",
+         "label": "Bonfire Toykyo Button Link"
+       },
+      {
+         "type": "collection",
+         "id": "slider_collection",
+         "label": "Collection"
+       }
+    ],
+    "presets": [
+      {
+        "category": "Collection",
+        "name": "Home Toykyo Collection",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

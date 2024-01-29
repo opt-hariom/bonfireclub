@@ -1,0 +1,49 @@
+<div class="upload-desgin-first-main">
+  <div class="page-width">
+    <div class="back-btn">
+      <a href="/">← Go back</a>
+    </div>
+    <div class="content">
+      <div class="heading">
+        {%- if section.settings.title != blank -%}
+          <h1>{{ section.settings.title }}</h1>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          {{ section.settings.subtitle }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Contact Header",
+    "class": "contact-header",
+    "settings": [
+      {
+         "type": "text",
+         "id": "title",
+         "label": "Title"
+      },
+      {
+         "type": "richtext",
+         "id": "subtitle",
+         "label": "Subtitle"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact Header",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

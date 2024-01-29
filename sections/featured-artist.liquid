@@ -1,0 +1,132 @@
+<section class="featured-artist">
+  <div class="back-btn">
+    <a href="/">← Bonfire Club</a>
+  </div>
+  <div class="heading">
+    <h1>{{- collection.title | escape -}}</h1>
+    <div class="slider-arrows">
+      <div class="button-prev">
+        <img src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/Asset8.svg?v=1686581910">
+      </div>
+      <div class="button-next">
+        <img src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/Asset8.svg?v=1686581910">
+      </div>
+    </div>
+  </div>
+  <div class="featured-wrapper">
+    <div class="featured">
+      <h2>Featured</h2>
+      <ul>
+      {%- if section.settings.featured_collections -%}
+        {% assign collektion = section.settings.featured_collections %}
+        {%- for collection in collektion -%}
+          <li>
+            <a href="{{collection.url}}">
+              <h3>{{ collection.title }}</h3>
+            </a>
+          </li>
+        {% endfor %}
+      {%- endif -%}
+      </ul>
+      <a class="all" href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+    </div>
+    <div class="featured-slider">
+      <div class="swiper collection-card">
+        <div class="swiper-wrapper">
+          {%- if section.settings.collections -%}
+            {% assign collektion = section.settings.collections %}
+            {%- for collection in collektion -%}
+              <div class="swiper-slide">
+                <a href="{{collection.url}}">
+                  <img src="{{ collection.image | img_url: 'large' }}"/>
+                  <div class="content">
+                    <h2>{{ collection.title }}</h2>
+                    <p>{{ collection.metafields.custom.collection_tag }}</p>
+                  </div>
+                </a>
+                <p>{{ collection.description | escape | newline_to_br }}</p>
+              </div>
+            {% endfor %}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+ 
+<script>
+$(document).ready(function() {
+  var swiper = new Swiper(".collection-card", {
+    loop: false,
+    slidesPerView: 3.10,
+    paginationClickable: true,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".button-next",
+      prevEl: ".button-prev",
+    },
+    breakpoints: {
+        0: {
+          slidesPerView: 1.30,
+          freemode: true,
+        },
+        500: {
+          slidesPerView: 1.5,
+          freemode: true,
+        },
+        768: {
+          slidesPerView: 2,
+          freemode: true,
+        },
+        1024: {
+          slidesPerView: 3.10,
+          freemode: true,
+        }
+      },
+  });
+});
+</script>
+
+{% schema %}
+  {
+    "name": "Featured Artist",
+    "settings": [
+      {
+        "type": "collection_list",
+        "id": "featured_collections",
+        "label": "Select Featured Collections"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "collection_list",
+        "id": "collections",
+        "label": "Select Collections"
+      }
+    ],
+     
+    "presets": [
+      {
+        "name": "Featured Artist",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
