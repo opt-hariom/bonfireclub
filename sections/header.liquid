@@ -1,23 +1,25 @@
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
+{% render 'header-css' %}
+
+<link rel="stylesheet" data-href="{{ 'component-list-menu.css' | asset_url }}">
+<link rel="stylesheet" data-href="{{ 'component-search.css' | asset_url }}">
+<link rel="stylesheet" data-href="{{ 'component-menu-drawer.css' | asset_url }}">
+<link rel="stylesheet" data-href="{{ 'component-cart-notification.css' | asset_url }}">
+<link rel="stylesheet" data-href="{{ 'component-cart-items.css' | asset_url }}">
 {%- if settings.predictive_search_enabled -%}
-  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" data-href="{{ 'component-price.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'component-loading-overlay.css' | asset_url }}">
 {%- endif -%}
 {%- if section.settings.menu_type_desktop == 'mega' -%}
-  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" data-href="{{ 'component-mega-menu.css' | asset_url }}">
   <noscript>{{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
 {%- endif -%}
 {%- if settings.cart_type == "drawer" -%}
-  {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-  {{ 'component-cart.css' | asset_url | stylesheet_tag }}
-  {{ 'component-totals.css' | asset_url | stylesheet_tag }}
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-  {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+  <link rel="stylesheet" data-href="{{ 'component-cart-drawer.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'component-cart.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'component-totals.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'component-price.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'component-discounts.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'component-loading-overlay.css' | asset_url }}"> 
 {%- endif -%}
 
 <noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
@@ -113,12 +115,12 @@
   }
 {%- endstyle -%}
 
-<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+<script type="lazyload_js" data-src="{{ 'details-disclosure.js' | asset_url }}"></script>
+<script type="lazyload_js" data-src="{{ 'details-modal.js' | asset_url }}"></script>
+<script type="lazyload_js" data-src="{{ 'cart-notification.js' | asset_url }}"></script>
+<script type="lazyload_js" data-src="{{ 'search-form.js' | asset_url }}"></script>
 {%- if settings.cart_type == "drawer" -%}
-  <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+  <script type="lazyload_js" data-src="{{ 'cart-drawer.js' | asset_url }}"></script>
 {%- endif -%}
 
 <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
@@ -253,11 +255,11 @@
                                             <div class="swiper-slide category-box">
                                               <a href="{{ block.settings.menu_collection1_link }}">
                                                 <div class="image">
-                                                  <img src="{{  block.settings.menu_collection1_image | img_url: 'master' }}" alt="">
+                                                  <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{  block.settings.menu_collection1_image | img_url: 'master' }}" alt="">
                                                 </div>
                                                 <div class="content">
                                                   {% if block.settings.menu_collection1_feat_image != blank %}
-                                                    <img src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/featured-icon.svg?v=1687963363" alt="">
+                                                    <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://cdn.shopify.com/s/files/1/0726/5094/8955/files/featured-icon.svg?v=1687963363" alt="">
                                                   {% endif %}
                                                   <h3>{{ block.settings.menu_collection1_title }}</h3>
                                                   <p>{{ block.settings.menu_collection1_subtitle }}</p>
@@ -267,7 +269,7 @@
                                             <div class="swiper-slide category-box">
                                               <a href="{{ block.settings.menu_collection2_link }}">
                                                 <div class="image">
-                                                  <img src="{{  block.settings.menu_collection2_image | img_url: 'master' }}" alt="">
+                                                  <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{  block.settings.menu_collection2_image | img_url: 'master' }}" alt="">
                                                 </div>
                                                 <div class="content">
                                                   <h3>{{ block.settings.menu_collection2_title }}</h3>
@@ -278,7 +280,7 @@
                                             <div class="swiper-slide category-box">
                                               <a href="{{ block.settings.menu_collection3_link }}">
                                                 <div class="image">
-                                                  <img src="{{  block.settings.menu_collection3_image | img_url: 'master' }}" alt="">
+                                                  <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{  block.settings.menu_collection3_image | img_url: 'master' }}" alt="">
                                                 </div>
                                                 <div class="content">
                                                   <h3>{{ block.settings.menu_collection3_title }}</h3>
@@ -715,7 +717,7 @@
                                 <div class="collec_box_main">
                                   <div class="category-box">
                                     <a href="{{ block.settings.menu_collection1_link }}">
-                                      <img src="{{  block.settings.menu_collection1_image | img_url: 'master' }}" alt="">
+                                      <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{  block.settings.menu_collection1_image | img_url: 'master' }}" alt="">
                                       <div class="content">
                                         <h3>{{ block.settings.menu_collection1_title }}</h3>
                                         <p>{{ block.settings.menu_collection1_subtitle }}</p>
@@ -724,7 +726,7 @@
                                   </div>
                                   <div class="category-box">
                                     <a href="{{ block.settings.menu_collection2_link }}">
-                                      <img src="{{  block.settings.menu_collection2_image | img_url: 'master' }}" alt="">
+                                      <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{  block.settings.menu_collection2_image | img_url: 'master' }}" alt="">
                                       <div class="content">
                                         <h3>{{ block.settings.menu_collection2_title }}</h3>
                                         <p>{{ block.settings.menu_collection2_subtitle }}</p>
@@ -733,7 +735,7 @@
                                   </div>
                                   <div class="category-box">
                                     <a href="{{ block.settings.menu_collection3_link }}">
-                                      <img src="{{  block.settings.menu_collection3_image | img_url: 'master' }}" alt="">
+                                      <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{  block.settings.menu_collection3_image | img_url: 'master' }}" alt="">
                                       <div class="content">
                                         <h3>{{ block.settings.menu_collection3_title }}</h3>
                                         <p>{{ block.settings.menu_collection3_subtitle }}</p>
@@ -937,7 +939,7 @@
 // });
 </script>
                   
-{% javascript %}
+<script type="lazyload_js">
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
@@ -1049,9 +1051,9 @@
 
   customElements.define('sticky-header', StickyHeader);
 
-{% endjavascript %}
+</script>
 
-<script>
+<script type="lazyload_js">
 $('.custom-list-class li').each(function(){
 	var this_text = $(this).find('a').html();
 	if (this_text.indexOf('*') !== -1) {

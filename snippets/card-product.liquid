@@ -54,7 +54,10 @@
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
-                src="{{ card_product.featured_media | img_url: 'master' }}"
+                data-class="LazyLoad"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                data-src="{{ card_product.featured_media | img_url: '720x' }}"
+                data-mob-src="{{ card_product.featured_media | img_url: '360x' }}"
                 alt="{{ card_product.featured_media.alt | escape }}"
                 class="motion-reduce"
                 {% unless lazy_load == false %}
@@ -67,7 +70,10 @@
 
               {%- if card_product.media[1] != null and show_secondary_image -%}
                 <img
-                  src="{{ card_product.media[1] | img_url: 'master' }}"
+                  data-class="LazyLoad"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                  data-src="{{ card_product.media[1] | img_url: '720x' }}"
+                  data-mob-src="{{ card_product.media[1] | img_url: '360x' }}"
                   alt=""
                   class="motion-reduce"
                   loading="lazy"

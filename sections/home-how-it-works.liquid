@@ -15,8 +15,8 @@
                 {% when 'boxes' %} 
                   <div class="swiper-slide box mobile-width">
                     <div class="image">
-                      <img src="{{ block.settings.img | img_url: 'large'}}">
-                      <img class="hover" src="{{ block.settings.gif_img | img_url: 'large'}}">
+                      <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.img | img_url: 'large'}}">
+                      <img class="hover" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.gif_img | img_url: 'large'}}">
                     </div>
                     <div class="text">
                       <h3>{{ block.settings.title }}</h3>
@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<script>
+<script type="lazyload_js">
 $(document).ready(function() { 
   var init = false;
   var swiper;
@@ -106,9 +106,3 @@ $(document).ready(function() {
     ]
   }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

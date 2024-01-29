@@ -1,11 +1,13 @@
+
+
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
-{{ 'section-footer.css' | asset_url | stylesheet_tag }}
-<link rel="stylesheet" href="{{ 'component-newsletter.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-list-payment.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-list-social.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'disclosure.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-footer.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'component-newsletter.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'component-list-payment.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'component-list-social.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'disclosure.css' | asset_url }}">
 
 <noscript>{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
@@ -322,7 +324,7 @@
   </div>
 </footer>
 
-{% javascript %}
+<script type="lazyload_js">
   class LocalizationForm extends HTMLElement {
     constructor() {
       super();
@@ -372,7 +374,7 @@
   }
 
   customElements.define('localization-form', LocalizationForm);
-{% endjavascript %}
+</script>
 
 {% schema %}
 {

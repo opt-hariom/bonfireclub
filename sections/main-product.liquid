@@ -26,8 +26,8 @@
     }
   {%- endstyle -%}
 
-  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script type="lazyload_js" data-src="{{ 'product-info.js' | asset_url }}"></script>
+  <script type="lazyload_js" data-src="{{ 'product-form.js' | asset_url }}"></script>
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
   {% endif %}
@@ -478,8 +478,8 @@
   {%- endfor -%}
 
   {%- if product.media.size > 0 -%}
-    <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+    <script type="lazyload_js" data-src="{{ 'product-modal.js' | asset_url }}"></script>
+    <script type="lazyload_js" data-src="{{ 'media-gallery.js' | asset_url }}"></script>
   {%- endif -%}
 
   {%- if first_3d_model -%}
